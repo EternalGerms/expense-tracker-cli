@@ -1,6 +1,7 @@
 # Rastreador de Despesas CLI
 
 Uma aplicação de linha de comando para gerenciar suas finanças pessoais.
+https://roadmap.sh/projects/expense-tracker
 
 ## Funcionalidades
 - Adicionar despesas com descrição, valor e categoria
