@@ -40,5 +40,12 @@
     "date": "2025-05-13",
     "description": "Dinner",
     "amount": 10.0
+  },
+  {
+    "id": 9,
+    "date": "2025-05-13",
+    "description": "Lunch",
+    "amount": 20.0,
+    "category": "Food"
   }
 ]

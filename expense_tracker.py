@@ -23,9 +23,11 @@ def main():
     add_parser = subparsers.add_parser('add', help='Add a new expense')
     add_parser.add_argument('--description', required=True, help='Expense description')
     add_parser.add_argument('--amount', required=True, type=float, help='Expense amount')
+    add_parser.add_argument('--category', required=True, help='Expense category')
 
     # List command
     list_parser = subparsers.add_parser('list', help='List all expenses')
+    list_parser.add_argument('--category', help='Filter expenses by category')
 
     # Delete command
     delete_parser = subparsers.add_parser('delete', help='Delete an expense by ID')
@@ -55,19 +57,22 @@ def main():
             'id': new_id,
             'date': today,
             'description': args.description,
-            'amount': args.amount
+            'amount': args.amount,
+            'category': args.category
         }
         expenses.append(new_expense)
         save_expenses(expenses)
         print(f'Expense added successfully (ID: {new_id})')
     elif args.command == 'list':
         expenses = load_expenses()
+        if args.category:
+            expenses = [e for e in expenses if e.get('category', '').lower() == args.category.lower()]
         if not expenses:
             print('No expenses found.')
             return
-        print(f'# ID  Date       Description  Amount')
+        print(f'# ID  Date       Description  Category     Amount')
         for e in expenses:
-            print(f"# {e['id']}   {e['date']}  {e['description']:<12}  ${int(e['amount']) if e['amount'].is_integer() else e['amount']}")
+            print(f"# {e['id']}   {e['date']}  {e['description']:<12}  {e.get('category',''):<12}  ${int(e['amount']) if e['amount'].is_integer() else e['amount']}")
     elif args.command == 'delete':
         expenses = load_expenses()
         expense_to_delete = next((e for e in expenses if e['id'] == args.id), None)
