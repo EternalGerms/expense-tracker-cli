@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 from datetime import datetime
+import csv
 
 DATA_FILE = 'expenses.json'
 BUDGET_FILE = 'budgets.json'
@@ -62,6 +63,10 @@ def main():
     budget_parser.add_argument('--year', type=int, required=True, help='Year for the budget (e.g. 2024)')
     budget_parser.add_argument('--month', type=int, required=True, help='Month for the budget (1-12)')
     budget_parser.add_argument('--amount', type=float, required=True, help='Budget amount')
+
+    # Export CSV command
+    export_parser = subparsers.add_parser('export-csv', help='Export all expenses to a CSV file')
+    export_parser.add_argument('--output', default='expenses.csv', help='Output CSV file name (default: expenses.csv)')
 
     args = parser.parse_args()
 
@@ -160,6 +165,20 @@ def main():
             print('Expense updated successfully')
         else:
             print('No updates provided.')
+    elif args.command == 'export-csv':
+        expenses = load_expenses()
+        if not expenses:
+            print('No expenses to export.')
+            return
+        fieldnames = ['id', 'date', 'description', 'amount', 'category']
+        with open(args.output, 'w', newline='', encoding='utf-8') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            for e in expenses:
+                # Ensure all fields are present for each expense
+                row = {k: e.get(k, '') for k in fieldnames}
+                writer.writerow(row)
+        print(f'Expenses exported to {args.output}')
 
 if __name__ == '__main__':
     main() 
