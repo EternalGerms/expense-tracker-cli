@@ -47,5 +47,117 @@
     "description": "Lunch",
     "amount": 20.0,
     "category": "Food"
+  },
+  {
+    "id": 10,
+    "date": "2025-05-13",
+    "description": "Lunch",
+    "amount": 20.0,
+    "category": "Food"
+  },
+  {
+    "id": 11,
+    "date": "2025-05-13",
+    "description": "Dinner",
+    "amount": 15.0,
+    "category": "Food"
+  },
+  {
+    "id": 12,
+    "date": "2025-05-13",
+    "description": "Dinner",
+    "amount": 15.0,
+    "category": "Food"
+  },
+  {
+    "id": 13,
+    "date": "2025-05-13",
+    "description": "Dinner",
+    "amount": 15.0,
+    "category": "Food"
+  },
+  {
+    "id": 14,
+    "date": "2025-05-13",
+    "description": "Dinner",
+    "amount": 15.0,
+    "category": "Food"
+  },
+  {
+    "id": 15,
+    "date": "2025-05-13",
+    "description": "Dinner",
+    "amount": 15.0,
+    "category": "Food"
+  },
+  {
+    "id": 16,
+    "date": "2025-05-13",
+    "description": "Dinner",
+    "amount": 15.0,
+    "category": "Food"
+  },
+  {
+    "id": 17,
+    "date": "2025-05-13",
+    "description": "Dinner",
+    "amount": 15.0,
+    "category": "Food"
+  },
+  {
+    "id": 18,
+    "date": "2025-05-13",
+    "description": "Dinner",
+    "amount": 15.0,
+    "category": "Food"
+  },
+  {
+    "id": 19,
+    "date": "2025-05-13",
+    "description": "Dinner",
+    "amount": 15.0,
+    "category": "Food"
+  },
+  {
+    "id": 20,
+    "date": "2025-05-13",
+    "description": "Dinner",
+    "amount": 15.0,
+    "category": "Food"
+  },
+  {
+    "id": 21,
+    "date": "2025-05-13",
+    "description": "Dinner",
+    "amount": 15.0,
+    "category": "Food"
+  },
+  {
+    "id": 22,
+    "date": "2025-05-13",
+    "description": "Dinner",
+    "amount": 15.0,
+    "category": "Food"
+  },
+  {
+    "id": 23,
+    "date": "2025-05-13",
+    "description": "Dinner",
+    "amount": 15.0,
+    "category": "Food"
+  },
+  {
+    "id": 24,
+    "date": "2025-05-13",
+    "description": "Lunch",
+    "amount": 20.0,
+    "category": "Food"
+  },
+  {
+    "id": 25,
+    "date": "2025-05-13",
+    "description": "Dinner",
+    "amount": 15.0,
+    "category": "Food"
   }
 ]
