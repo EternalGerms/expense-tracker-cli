@@ -35,6 +35,12 @@ def main():
     summary_parser = subparsers.add_parser('summary', help='Show expenses summary')
     summary_parser.add_argument('--month', type=int, help='Show summary for a specific month (1-12)')
 
+    # Update command
+    update_parser = subparsers.add_parser('update', help='Update an expense by ID')
+    update_parser.add_argument('--id', required=True, type=int, help='Expense ID to update')
+    update_parser.add_argument('--description', help='New description')
+    update_parser.add_argument('--amount', type=float, help='New amount')
+
     args = parser.parse_args()
 
     # Placeholder for command logic
@@ -83,6 +89,27 @@ def main():
         else:
             total = sum(e['amount'] for e in expenses)
             print(f'Total expenses: ${int(total) if float(total).is_integer() else total}')
+    elif args.command == 'update':
+        expenses = load_expenses()
+        expense = next((e for e in expenses if e['id'] == args.id), None)
+        if not expense:
+            print('Error: Expense ID not found.')
+            return
+        updated = False
+        if args.description is not None:
+            expense['description'] = args.description
+            updated = True
+        if args.amount is not None:
+            if args.amount < 0:
+                print('Error: Amount cannot be negative.')
+                return
+            expense['amount'] = args.amount
+            updated = True
+        if updated:
+            save_expenses(expenses)
+            print('Expense updated successfully')
+        else:
+            print('No updates provided.')
 
 if __name__ == '__main__':
     main() 
